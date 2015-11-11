@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>My Gallery - Alex Jablon</title>
+    <link rel="stylesheet" href="./style.css"> 
+
+    <!-- Core CSS file -->
+    <link rel="stylesheet" href="node_modules/photoswipe/dist/photoswipe.css"> 
+
+    <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+    In the folder of skin CSS file there are also:
+    - .png and .svg icons sprite, 
+    - preloader.gif (for browsers that do not support CSS animations) -->
+    <link rel="stylesheet" href="node_modules/photoswipe/dist/default-skin/default-skin.css"> 
+
+  </head>
+  <body>
+    <div id="main-column">
+      <h2 class="heading">My Gallery</h2>
+      <div id="thumbs">
+      </div>
+    </div>
+    <!-- /PhotoSwipe DOM -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+          <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+          </div>
+          <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+              <div class="pswp__counter"></div>
+              <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+              <button class="pswp__button pswp__button--share" title="Share"></button>
+              <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+              <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+              <div class="pswp__preloader">
+                <div class="pswp__preloader__icn">
+                  <div class="pswp__preloader__cut">
+                    <div class="pswp__preloader__donut"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+              <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+              <div class="pswp__caption__center"></div>
+            </div>
+          </div>
+        </div>
+        <!-- /PhotoSwipe DOM -->
+
+      <script src="./lib/index.js"></script> 
+    </div>
+  </body>
+</html>
