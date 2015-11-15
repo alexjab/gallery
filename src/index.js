@@ -109,7 +109,7 @@ for (var i = 0; i < Math.max (items.length/3); i++) {
   row.className = 'thumb-row';
 
   thumbLeft = document.createElement('div');
-  thumbLeft.className = 'thumb';
+  thumbLeft.className = 'thumb thumb-left';
   thumbLeft.setAttribute ('style', 'background-image: url(\''+ items[i*3]._src + '\')');
   thumbLeft.onclick = openInPhotoSwipe (i*3);
   row.appendChild(thumbLeft);
