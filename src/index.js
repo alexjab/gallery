@@ -1,95 +1,174 @@
-var PhotoSwipe = require ('photoswipe/dist/photoswipe.min.js');
-var PhotoSwipeUI_Default = require ('photoswipe/dist/photoswipe-ui-default.min.js');
+var PhotoSwipe = require('photoswipe/dist/photoswipe.min.js');
+var PhotoSwipeUI_Default = require('photoswipe/dist/photoswipe-ui-default.min.js');
+var moment = require('moment');
 
 var BASE_URL = 'https://s3.eu-central-1.amazonaws.com/jablon-me/my_gallery';
 
 // build items array
 var items = [{
-  id: 'IMG_0230.jpg',
-  w: 960,
-  h: 960,
-  title: 'Autumn. Fallen leaves. Me. (11/07/2015, Revigny-sur-Ornain, France)'
-}, {
   id: 'IMG_0235.jpg',
   w: 1280,
   h: 1280,
-  title: 'Red Floor during Day. (11/07/2015, Revigny-sur-Ornain, France)'
+  location: 'Revigny-sur-Ornain, France',
+  date: new Date (2015, 10, 7)
 }, {
   id: 'IMG_0236.jpg',
   w: 1280,
   h: 960,
-  title: 'Parisian Rooftops. (11/01/2015, Exelmans, Paris, France)'
+  location: 'Exelmans, Paris, France',
+  date: new Date (2015, 10, 1)
 }, {
   id: 'IMG_0237.jpg',
   w: 1280,
   h: 960,
-  title: 'Pont du Garigliano. (11/01/2015, Pont du Garigliano, Paris, France)'
+  location: '<i>Pont du Garigliano</i>, Paris, France',
+  date: new Date (2015, 10, 1)
 }, {
   id: 'IMG_0240.jpg',
   w: 1280,
   h: 1280,
-  title: 'Métro Lourmel (line 8). (10/18/2015, Lourmel, Paris, France)'
+  location: 'Lourmel, Paris, France',
+  date: new Date (2015, 9, 18)
 }, {
   id: 'IMG_0241.jpg',
   w: 1024,
   h: 1280,
-  title: 'Galerie Vivienne. (09/27/2015, Paris, France)'
+  location: 'Paris, France',
+  date: new Date (2015, 8, 27)
 }, {
   id: 'IMG_0242.jpg',
   w: 1280,
   h: 960,
-  title: 'View from my balcony I. (10/09/2015, Desnouettes, Paris, France)'
+  location: 'Desnouettes, Paris, France',
+  date: new Date (2015, 9, 9)
 }, {
   id: 'IMG_0243.jpg',
   w: 1280,
   h: 958,
-  title: 'View from my balcony II. (10/27/2015, Desnouettes, Paris, France)'
+  location: 'Desnouettes, Paris, France',
+  date: new Date (2015, 9, 27)
 }, {
   id: 'IMG_0245.jpg',
   w: 1024,
   h: 1280,
-  title: 'Fallen leaves. (11/08/2015, Revigny-sur-Ornain, France)'
+  location: 'Revigny-sur-Ornain, France',
+  date: new Date (2015, 10, 7)
 }, {
   id: 'IMG_0248.jpg',
   w: 1280,
   h: 960,
-  title: 'Leafway to home. (11/08/2015, Revigny-sur-Ornain, France)'
+  location: 'Revigny-sur-Ornain, France',
+  date: new Date (2015, 10, 8)
 }, {
   id: 'IMG_0250.jpg',
   w: 1280,
   h: 1280,
-  title: 'Stone marches. (11/08/2015, Revigny-sur-Ornain, France)'
+  location: 'Revigny-sur-Ornain, France',
+  date: new Date (2015, 10, 8)
 }, {
   id: 'IMG_0253.jpg',
   w: 1280,
   h: 960,
-  title: 'Sunset in Paris. (11/09/2015, Issy-les-Moulineaux, France)'
+  location: 'Issy-les-Moulineaux, France',
+  date: new Date (2015, 10, 9)
 }, {
   id: 'IMG_0262.jpg',
   w: 1280,
   h: 949,
-  title: '106. (11/11/2015, Lourmel, Paris, France)'
+  location: 'Lourmel, Paris, France',
+  date: new Date (2015, 10, 11)
 }, {
   id: 'IMG_0265.jpg',
   w: 1280,
   h: 1280,
-  title: 'Vélibs. (11/11/2015, Lourmel, Paris, France)'
+  location: 'Lourmel, Paris, France',
+  date: new Date (2015, 10, 11)
 }, {
   id: 'IMG_0270.jpg',
   w: 1280,
   h: 1280,
-  title: 'Door giving onto the kitchen. (11/08/2015, Revigny-sur-Ornain, France)'
+  location: 'Revigny-sur-Ornain, France',
+  date: new Date (2015, 10, 8)
 }, {
   id: 'IMG_0272.jpg',
   w: 1280,
   h: 1280,
+  location: 'Lourmel, Paris, France',
+  date: new Date (2015, 10, 14),
   title: 'Empty <i>Métro</i>. (11/14/2015, Lourmel, Paris, France)'
+}, {
+  id: 'IMG_0306.jpg',
+  w: 1024,
+  h: 1280,
+  location: 'The Louvre, Paris, France',
+  date: new Date (2015, 10, 21),
+}, {
+  id: 'IMG_0307.jpg',
+  w: 1024,
+  h: 1280,
+  location: 'The Louvre, Paris, France',
+  date: new Date (2015, 10, 21),
+}, {
+  id: 'IMG_0309.jpg',
+  w: 1280,
+  h: 1280,
+  location: 'Paris, France',
+  date: new Date (2015, 10, 21),
+}, {
+  id: 'IMG_0312.jpg',
+  w: 1280,
+  h: 960,
+  location: '<i>Arc de Triomphe</i>, Paris, France',
+  date: new Date (2015, 10, 18)
+}, {
+  id: 'IMG_0314.jpg',
+  w: 1280,
+  h: 960,
+  location: 'Issy-les-Moulineaux, France',
+  date: new Date (2015, 10, 19)
+}, {
+  id: 'IMG_0324.jpg',
+  w: 1280,
+  h: 1280,
+  location: 'Revigny-sur-Ornain, France',
+  date: new Date (2015, 10, 8)
+}, {
+  id: 'IMG_0325.jpg',
+  w: 1280,
+  h: 1024,
+  location: 'Paris, France',
+  date: new Date (2015, 10, 29)
+}, {
+  id: 'IMG_0327.jpg',
+  w: 1280,
+  h: 960,
+  location: 'The Louvre, Paris, France',
+  date: new Date (2015, 10, 21)
+}, {
+  id: 'IMG_0329.jpg',
+  w: 1280,
+  h: 1024,
+  location: '<i>La Concergierie</i>, Paris, France',
+  date: new Date (2015, 10, 29)
 }];
+
+items.sort(function(itemA, itemB) {
+  return itemA.date - itemB.date;
+});
+
+items.unshift({
+  id: 'IMG_0230.jpg',
+  w: 960,
+  h: 960,
+  location: 'Revigny-sur-Ornain, France',
+  date: new Date (2015, 10, 7)
+});
 
 // Fuck old browsers, progress is underway.
 items = items.map (function (item) {
   item.src = BASE_URL + '/' + item.id;
   item._src = BASE_URL + '/thumbs/' + item.id;
+  item.title = '(' + moment(item.date).format('MM/DD/YYYY') + ', ' + item.location + ')';
   return item;
 });
 
@@ -100,7 +179,6 @@ function openInPhotoSwipe (index) {
     gallery.init ();
   };
 };
-
 
 var thumbs = document.getElementById('thumbs');
 var row, thumbLeft, thumbMiddle, thumbRight;

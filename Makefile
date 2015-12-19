@@ -1,2 +1,2 @@
 main:
-	browserify src/index.js -o lib/index.js
+	browserify src/index.js | uglifyjs -o lib/index.min.js

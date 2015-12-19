@@ -15,9 +15,9 @@ body {
   .thumb {
     display: inline-block;
     width: 245px;
-    height: 125px;
+    height: 245px;
     font-size: 0;
-    background-size: 245px;
+    background-size: cover;
     background-position: center;
     cursor: pointer;
   }
