@@ -140,8 +140,8 @@ var items = [{
   date: new Date (2015, 10, 29)
 }, {
   id: 'IMG_0327.jpg',
-  w: 1280,
-  h: 960,
+  w: 1024,
+  h: 1280,
   location: 'The Louvre, Paris, France',
   date: new Date (2015, 10, 21)
 }, {
